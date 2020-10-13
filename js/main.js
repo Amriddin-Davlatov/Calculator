@@ -15,10 +15,13 @@ window.addEventListener('load', () => {
             const newValue = 'Недопустимое выражение';
 
             inputEl.style.color = 'red';
+            inputEl.disabled = true;
             inputEl.value = newValue;
             setTimeout(() => {
                 inputEl.style.color = '#000';
                 inputEl.value = oldValue;
+                inputEl.disabled = false;
+                inputEl.focus();
             }, 2000);
         }
     }
@@ -33,12 +36,16 @@ window.addEventListener('load', () => {
 
     clearBtnEl.addEventListener('click', () => {
         inputEl.value = '';
+        inputEl.focus();
     });
 
     equalBtnEl.addEventListener('click', calc);
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
+            if (inputEl.value === '') {
+                return;
+            }
             event.preventDefault();
             calc();
         }
