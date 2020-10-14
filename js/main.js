@@ -43,10 +43,10 @@ window.addEventListener('load', () => {
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
+            event.preventDefault();
             if (inputEl.value === '') {
                 return;
             }
-            event.preventDefault();
             calc();
         }
     });
