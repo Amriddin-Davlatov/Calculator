@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
                 inputEl.value = response().toFixed();
                 return;
             }
-            inputEl.value = res().toFixed(2);
+            inputEl.value = response().toFixed(2);
         } catch {
             const oldValue = inputEl.value;
             const newValue = 'Недопустимое выражение';
