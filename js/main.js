@@ -9,7 +9,13 @@ window.addEventListener('load', () => {
 
     function calc() {
         try {
-            inputEl.value = eval(inputEl.value);
+            let response = new Function('return '+ inputEl.value );
+            
+            if (response().toFixed(2).split('.')[1] === '00') {
+                inputEl.value = response().toFixed();
+                return;
+            }
+            inputEl.value = res().toFixed(2);
         } catch {
             const oldValue = inputEl.value;
             const newValue = 'Недопустимое выражение';
